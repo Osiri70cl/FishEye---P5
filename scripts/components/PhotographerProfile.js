@@ -31,7 +31,9 @@ export class PhotographerProfile {
    * @param wrapper - the wrapper element that the photographer picture will be appended to
    */
   createPhotographerPicture(wrapper) {
-    wrapper.innerHTML += `<img src=assets/photographers/${this.photographer.portrait} class="photographer-portrait" aria-labelledby="photographer-${this.photographer.id}" alt="${this.photographer.name}">`;
+    wrapper.innerHTML += `<img src=assets/photographers/${this.photographer.portrait} class="photographer-portrait" aria-labelledby="photographer-${this.photographer.id}" alt="${this.photographer.name}">
+    <h2 class="photographer-name">${this.photographer.name}</h2>
+    `;
   }
 
   /**
@@ -40,20 +42,14 @@ export class PhotographerProfile {
    * @param page - the page where the profile is displayed.
    * @returns The wrapper with the photographer's profile.
    */
-  createProfile(wrapper, page) {
+  createProfile(wrapper) {
     wrapper.setAttribute("aria-label", this.photographer.name);
-    wrapper.innerHTML += `<article class="photographer-profile">${
-      page == "homePage"
-        ? `<h2 class="photographer-name">${this.photographer.name}</h2>`
-        : `<h1 class="photographer-name" id="photographer-${this.photographer.id}">${this.photographer.name}</h1>`
-    }<p class="photographer-location">${
-      this.photographer.location
-    }</p><p class="photographer-tagline">${this.photographer.tagline}</p>
-    ${
-      page == "homePage"
-        ? `<p class="photographer-price">${this.photographer.price}€/jour</p>`
-        : ""
-    }</article>`;
+    wrapper.innerHTML += `
+    <a href="photographer.html?id=${this.photographer.id}"" class="photographer-profile">
+      <p aria-label="${this.photographer.location}" class="photographer-location">${this.photographer.location}</p>
+      <p class="photographer-tagline">${this.photographer.tagline}</p>
+      <p class="photographer-price">${this.photographer.price}€/jour</p>
+    </a>`;
     return wrapper;
   }
 }

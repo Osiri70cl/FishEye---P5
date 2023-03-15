@@ -12,7 +12,6 @@ export class Photographer {
     this.portrait = photographer.portrait;
     this.price = photographer.price;
     this.tagline = photographer.tagline;
-    this.totalLikes = photographer.totalLikes;
   }
 
   /**
