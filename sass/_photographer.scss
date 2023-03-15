@@ -1,0 +1,262 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+.photograph-header {
+  background-color: $theme-lightGray;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  & .photographer-name {
+    font-size: 64px;
+  }
+
+  & .photographer-location {
+    font-size: 1.4em;
+  }
+
+  & .photographer-tagline {
+    color: $theme-darkGray;
+  }
+}
+
+.contact_button,
+.open_modal_button {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: $theme-darkRed;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sort-label {
+  margin-right: 1em;
+}
+
+form {
+  & label {
+    color: $theme-darkGray;
+    font-size: 36px;
+  }
+  & input {
+    margin-bottom: 26px;
+    width: 100%;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.media-sorting-menu {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.dropdown-sort {
+  background: #911c1c;
+  color: white;
+  font-weight: 700px;
+  border-radius: 5px;
+  width: 170px;
+  height: 4em;
+  padding-left: 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  & option {
+    width: 170px;
+    height: 4em;
+  }
+}
+
+.photographer-media {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.mediaCard {
+  min-width: 250px;
+  min-height: 250px;
+  width: 30%;
+  max-width: 25em;
+  margin: 0 0 2% 0;
+  & > * {
+    width: 100%;
+  }
+  & img,
+  video {
+    aspect-ratio: 1;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.media-legend {
+  padding: 10px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $theme-darkRed;
+  min-height: 3em;
+  & .likes {
+    margin-left: 25px;
+  }
+  & figcaption,
+  .likes {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1.4em;
+    & data {
+      margin-right: 15px;
+    }
+    & .fa-heart {
+      fill: $theme-darkRed;
+      cursor: pointer;
+    }
+  }
+}
+
+data {
+  font-size: 1em;
+}
+
+.media-thumbnail {
+  cursor: pointer;
+}
+
+.fa-heart {
+  width: 1.4em;
+  vertical-align: middle;
+}
+
+.insert {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  width: 17em;
+  bottom: 0;
+  right: 2em;
+  padding: 0px 35px 0px 35px;
+  border-radius: 5px;
+  background-color: $theme-lightRed;
+  & div {
+    font-size: 1.4em;
+    line-height: 2em;
+    height: 100%;
+    & .fa-heart {
+      padding-bottom: 5px;
+    }
+  }
+  & .total-likes-container {
+    width: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.modal-background-hidden {
+  visibility: hidden;
+}
+
+.modal-background-faded {
+  opacity: 50%;
+}
+
+.lightbox_right-panel {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  & .modal_close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: 0;
+    font-size: 3em;
+    cursor: pointer;
+  }
+}
+
+.lightbox-container {
+  display: flex;
+  position: relative;
+  & * {
+    color: $theme-darkRed;
+  }
+  & .modal_close-button {
+    z-index: 1;
+  }
+  & figcaption {
+    font-size: 1.5em;
+  }
+  & a {
+    font-size: 5em;
+    text-decoration: none;
+  }
+  .lightbox_media-container {
+    height: 100%;
+    margin-left: 1em;
+    margin-right: 1em;
+    & .lightbox_media {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 5px;
+      object-fit: contain;
+    }
+  }
+}
+
+.contact-modal {
+  & .modal_close-button {
+    color: white;
+    right: 0.5em;
+    top: 1em;
+  }
+  & .contact-modal_header {
+    max-width: 90%;
+    font-size: 2.5em;
+    color: black;
+    margin: 0;
+  }
+  & label {
+    // Used padding instead of margin to provide a larger interactive size for better accessibility
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+    width: 100%;
+  }
+  & .contact-modal_message {
+    height: 10em;
+  }
+}
+
+#lightbox_previous-media-button {
+  align-self: center;
+}
+
+.contact-modal_container {
+  position: relative;
+  width: 30%;
+  background-color: $theme-lightRed;
+  padding: 2em;
+  border-radius: 5px;
+}
