@@ -1,4 +1,6 @@
+import { PhotographerMedia } from "../components/PhotographerMedia.js"
 import { PhotographerProfile } from "../components/PhotographerProfile.js";
+import { displayedPhotographerData } from "../store/store.js"
 
 /* The Photographer class is a class that creates a photographer object and has a method that displays
 the photographer's card on the home page */
@@ -24,4 +26,24 @@ export class Photographer {
       .querySelector(".photographer_section")
       .appendChild(template.createPhotographerCard());
   }
+
+   // Creates the photographer's profile page, and sorts media by popularity by default
+   displayProfile() {
+    const template = new PhotographerProfile(this)
+    document
+      .querySelector("#main")
+      .appendChild(template.createPhotographerHeader())
+    template.createprofilePageInsert()
+    PhotographerMedia.createMediaSection()
+    displayedPhotographerData.media.forEach((element) => {
+      const mediaCard = new PhotographerMedia(element)
+      document
+        .querySelector(".photographer-media")
+        .appendChild(mediaCard.createMediaCard())
+      mediaCard.addLikes()
+      mediaCard.addLightboxEventListener()
+    })
+    PhotographerMedia.sortMedia()
+  }
 }
+
