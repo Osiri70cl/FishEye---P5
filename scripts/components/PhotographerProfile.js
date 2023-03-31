@@ -1,3 +1,4 @@
+import { faHeartIcon } from "./faHeartIcon.js";
 import { ModalFactory } from "../factories/modalFactory.js";
 
 export class PhotographerProfile {
@@ -16,14 +17,20 @@ export class PhotographerProfile {
     this.createPhotographerPicture(cardLink);
     document
       .querySelector("main")
-      .appendChild(this.createProfile(cardContainer, "homePage"));
+      .appendChild(this.createProfileMain(cardContainer, "homePage"));
     return cardContainer;
   }
 
   // Creates the photographer picture element on main page and in the photographer's header
   createPhotographerPicture(wrapper) {
-    wrapper.innerHTML += `<img src=assets/photographers/${this.photographer.portrait} class="photographer-portrait" aria-labelledby="photographer-${this.photographer.id}" alt="${this.photographer.name}">
+    wrapper.innerHTML += `<img src=assets/photographers/${this.photographer.portrait} class="photographer-portrait" aria-label="photographer-${this.photographer.id}" alt="Photo de ${this.photographer.name}">
     <h2 class="photographer-name">${this.photographer.name}</h2>
+    `;
+  }
+  createPhotographerPictureProfile(wrapper) {
+    wrapper.innerHTML += `<img src=assets/photographers/${this.photographer.portrait} class="photographer-portrait"
+    tabindex="0" 
+    aria-label="photographer-${this.photographer.id}" alt="Photo de ${this.photographer.name}">
     `;
   }
 
@@ -33,7 +40,7 @@ export class PhotographerProfile {
    * @param page - the page where the profile is displayed.
    * @returns The wrapper with the photographer's profile.
    */
-  createProfile(wrapper) {
+  createProfileMain(wrapper) {
     wrapper.setAttribute("aria-label", this.photographer.name);
     wrapper.innerHTML += `
     <a href="photographer.html?id=${this.photographer.id}"" class="photographer-profile">
@@ -41,6 +48,17 @@ export class PhotographerProfile {
       <p class="photographer-tagline">${this.photographer.tagline}</p>
       <p class="photographer-price">${this.photographer.price}€/jour</p>
     </a>`;
+    return wrapper;
+  }
+  createProfile(wrapper) {
+    wrapper.setAttribute("aria-label", this.photographer.name);
+    wrapper.innerHTML += `
+    <div  class="photographer-profile">
+    <h1 tabindex="0" class="photographer-name">${this.photographer.name}</h1>
+      <h2 tabindex="0" aria-label="${this.photographer.location}" class="photographer-location">${this.photographer.location}</h2>
+      <p tabindex="0" class="photographer-tagline">${this.photographer.tagline}</p>
+      <p tabindex="0" class="photographer-price">${this.photographer.price}€/jour</p>
+    </div>`;
     return wrapper;
   }
 
@@ -59,14 +77,14 @@ export class PhotographerProfile {
         new ModalFactory("contact", this.photographer).displayModal(event);
       }
     });
-    this.createPhotographerPicture(wrapper);
+    this.createPhotographerPictureProfile(wrapper);
     return wrapper;
   }
 
   // Creates the fixed insert found at the bottom, containing the total likes and daily price
   createprofilePageInsert() {
     const wrapper = document.querySelector("#main");
-    wrapper.innerHTML += `<aside class="insert"><div class="total-likes-container"><data aria-label="Total likes" value='${this.photographer.totalLikes}' class="total-likes">${this.photographer.totalLikes}</data> ❤️</div><div><data class="price" aria-label="Daily price" value='${this.photographer.price}'>${this.photographer.price}</data>€ / jour</div></aside>`;
+    wrapper.innerHTML += `<aside class="insert"><div class="total-likes-container"><data aria-label="Total likes" value='${this.photographer.totalLikes}' class="total-likes">${this.photographer.totalLikes}</data> ${faHeartIcon}</div><div><data class="price" aria-label="Daily price" value='${this.photographer.price}'>${this.photographer.price}</data>€ / jour</div></aside>`;
     return wrapper;
   }
 }

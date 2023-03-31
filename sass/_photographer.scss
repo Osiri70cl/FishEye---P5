@@ -254,9 +254,10 @@ data {
 }
 
 .contact-modal_container {
-  position: relative;
+  position: fixed;
   width: 30%;
   background-color: $theme-lightRed;
   padding: 2em;
+  margin: 24px 0;
   border-radius: 5px;
 }
