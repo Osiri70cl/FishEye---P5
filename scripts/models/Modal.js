@@ -23,7 +23,7 @@ export class Modal {
     modalContainer.classList = `modal-container`;
     modalContainer.setAttribute("aria-modal", true);
     modalContainer.setAttribute("role", "dialog");
-    modalContainer.innerHTML = `<div><button class="modal_close-button" aria-label="Close dialog" tabindex="0">X</button></div>`;
+    modalContainer.innerHTML = `<div><button class="modal_close-button" aria-label="Close dialog">X</button></div>`;
     wrapper.appendChild(modalContainer);
 
     // Adds events to close the modal
@@ -40,6 +40,17 @@ export class Modal {
         this.closeModalEvent(backgroundElements);
       }
     });
+    modalContainer.addEventListener("focus", (e) => {
+      if (e.target.id == "submit_button") {
+        document.querySelector("#contact_modal-photographer-header").focus();
+      }
+    });
+    // document
+    //   .querySelector(".contact-modal_submit-button")
+    //   .addEventListener("focus", () => {
+    //     console.log("Contact");
+    //     modalContainer.querySelector(".contact-modal_header").focus();
+    //   });
     return modalContainer;
   }
 

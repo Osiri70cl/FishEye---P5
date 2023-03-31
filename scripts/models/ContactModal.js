@@ -24,13 +24,13 @@ export class ContactModal extends Modal {
     const contactContainer = document.querySelector(".modal-container > div");
     contactContainer.classList = "contact-modal_container";
     contactContainer.innerHTML += `
-    <h2 id="contact_modal-photographer-header" class="contact-modal_header">Contactez-moi <br>${this.photographer.name}</h2>
+    <h2 id="contact_modal-photographer-header" tabindex="0" class="contact-modal_header">Contactez-moi <br>${this.photographer.name}</h2>
     <form>
-    <label>Prénom<input type="text" name="firstname"></label>
-    <label>Nom<input type="text" name="lastname" ></label>
-      <label>Email<input type="email" name="email"></label>
-      <label>Votre message<input type="text" class="contact-modal_message" name="message"></label>
-    <button class="contact_button contact-modal_submit-button" aria-label="Send" >Envoyer</button>
+    <label>Prénom<input type="text"  name="firstname"></label>
+    <label>Nom<input type="text"  name="lastname" ></label>
+      <label>Email<input type="email"  name="email"></label>
+      <label>Votre message<input type="text"  class="contact-modal_message" name="message"></label>
+    <button class="contact_button contact-modal_submit-button" id="submit_button"  aria-label="Send" >Envoyer</button>
   </form>`;
     document
       .querySelector("body")

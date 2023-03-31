@@ -75,6 +75,8 @@ export class PhotographerProfile {
     body.addEventListener("click", (event) => {
       if (event.target.classList == "open_modal_button") {
         new ModalFactory("contact", this.photographer).displayModal(event);
+        // Focus on title of modal
+        document.querySelector(".contact-modal_header").focus();
       }
     });
     this.createPhotographerPictureProfile(wrapper);
