@@ -22,21 +22,25 @@ export class PhotographerProfile {
 
   // Creates the photographer picture element on main page and in the photographer's header
   createPhotographerPicture(wrapper) {
-    wrapper.innerHTML += `<img src=assets/photographers/${this.photographer.portrait} class="photographer-portrait" aria-labelledby="photographer-${this.photographer.id}" alt="photo de ${this.photographer.name}">`;
+    wrapper.innerHTML += `<img src=assets/photographers/${this.photographer.portrait} class="photographer-portrait" aria-labelledby="photographer-${this.photographer.id}" alt="${this.photographer.name}">
+    <h2 class="photographer-name">${this.photographer.name}</h2>
+    `;
   }
 
-  // Creates main info about photographers
-  createProfile(wrapper, page) {
+  /**
+   * It creates a profile for a photographer
+   * @param wrapper - the element that will contain the profile
+   * @param page - the page where the profile is displayed.
+   * @returns The wrapper with the photographer's profile.
+   */
+  createProfile(wrapper) {
     wrapper.setAttribute("aria-label", this.photographer.name);
     wrapper.innerHTML += `
-    <div class="photographer-profile-container">
-    <h1 aria-label="photographer.html?id=${this.photographer.id}"" class="photographer-profile" ></h1>
-    <p aria-label="${this.photographer.location}" class="photographer-location">${this.photographer.location}</p>
-    <p class="photographer-tagline">${this.photographer.tagline}</p>
-    <p class="photographer-price">${this.photographer.price}€/jour</p>
-    </div>
-    `;
-
+    <a href="photographer.html?id=${this.photographer.id}"" class="photographer-profile">
+      <p aria-label="${this.photographer.location}" class="photographer-location">${this.photographer.location}</p>
+      <p class="photographer-tagline">${this.photographer.tagline}</p>
+      <p class="photographer-price">${this.photographer.price}€/jour</p>
+    </a>`;
     return wrapper;
   }
 
