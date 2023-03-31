@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import "_variables.scss";
 
 body {
   font-family: "DM Sans", sans-serif;
@@ -37,7 +37,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
-  margin-top: 100px;
+  padding: 100px 0px;
 
   & article {
     justify-self: center;
