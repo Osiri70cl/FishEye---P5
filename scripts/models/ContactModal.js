@@ -26,9 +26,9 @@ export class ContactModal extends Modal {
     contactContainer.innerHTML += `
     <h2 id="contact_modal-photographer-header" tabindex="0" class="contact-modal_header">Contactez-moi <br>${this.photographer.name}</h2>
     <form>
-    <label>Prénom<input type="text"  name="firstname"></label>
-    <label>Nom<input type="text"  name="lastname" ></label>
-      <label>Email<input type="email"  name="email"></label>
+    <label>Prénom<input type="text"  name="firstname" pattern="^[a-zA-ZÀ-ÿ]+$"></label>
+    <label>Nom<input type="text"  name="lastname" pattern="^[a-zA-ZÀ-ÿ]+$" ></label>
+      <label>Email<input type="email"  name="email"pattern="[a-zA-Z0-9._%+-]{2,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}></label>
       <label>Votre message<input type="text"  class="contact-modal_message" name="message"></label>
     <button class="contact_button contact-modal_submit-button" id="submit_button"  aria-label="Send" >Envoyer</button>
   </form>`;

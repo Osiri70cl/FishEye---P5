@@ -68,6 +68,10 @@ h2 {
   object-fit: cover;
 }
 
+.photographer-profile {
+  text-decoration: none;
+}
+
 .photographer-name {
   color: $theme-lightRed;
   margin-bottom: 0;
@@ -76,6 +80,10 @@ h2 {
 
 .photographer-location {
   color: $theme-darkRed;
+}
+
+.photographer-tagline {
+  color: black;
 }
 .photographer-price {
   color: $theme-darkGray;

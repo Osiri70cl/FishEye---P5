@@ -78,6 +78,9 @@ form {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.photographer-profile {
+  text-decoration: none;
+}
 
 .mediaCard {
   min-width: 250px;
@@ -225,6 +228,10 @@ data {
     }
   }
 }
+.photographer-tagline {
+  text-decoration: none;
+  color: black;
+}
 
 .contact-modal {
   & .modal_close-button {
@@ -250,6 +257,10 @@ data {
 }
 
 #lightbox_previous-media-button {
+  align-self: center;
+}
+
+#lightbox_next-media-button {
   align-self: center;
 }
 
