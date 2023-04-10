@@ -40,7 +40,7 @@ export class Modal {
         this.closeModalEvent(backgroundElements);
       }
     });
-    modalContainer.addEventListener("focus", (e) => {
+    modalContainer.addEventListener("focusout", (e) => {
       if (e.target.id == "submit_button") {
         document.querySelector("#contact_modal-photographer-header").focus();
       }
