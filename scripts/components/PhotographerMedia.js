@@ -77,28 +77,38 @@ export class PhotographerMedia {
   // Gets the value of sorting dropdown menu, then reorders the medias accordingly. Default behavior is to sort by popularity (done on first page load)
   static sortMedia() {
     const sortingParameter = document.getElementById("order-by").value;
-    // Reorders the data in the store according to the sort parameter selected by user
-    displayedPhotographerData.media.sort((a, b) => {
-      if (sortingParameter == "popularite" || sortingParameter == undefined) {
-        return b.likes - a.likes;
-      } else if (sortingParameter == "date") {
-        return b.date.localeCompare(a.date);
-      } else if (sortingParameter == "titre") {
-        return a.title.localeCompare(b.title);
-      }
-    });
 
-    // Reorders elements on the page based on their index in the reordered data in the store
-    displayedPhotographerData.media.forEach((element) => {
-      for (let media of document.querySelectorAll(".mediaCard")) {
-        let dataId = media.getAttribute("data-media-id");
-        if (dataId == element.id) {
-          document
-            .querySelector(".photographer-media")
-            .insertBefore(media, undefined);
+    // Check if the media property is not null before sorting and reordering elements
+    if (displayedPhotographerData.media !== null) {
+      displayedPhotographerData.media.sort((a, b) => {
+        if (
+          sortingParameter === "popularite" ||
+          sortingParameter === undefined
+        ) {
+          return b.likes - a.likes;
+        } else if (sortingParameter === "date") {
+          return b.date.localeCompare(a.date);
+        } else if (sortingParameter === "titre") {
+          return a.title.localeCompare(b.title);
         }
-      }
-    });
+      });
+
+      // Create a new array of media elements based on the sorted displayedPhotographerData.media array
+      const sortedMediaElements = displayedPhotographerData.media.map(
+        (media) => {
+          return document.querySelector(
+            `.mediaCard[data-media-id="${media.id}"]`
+          );
+        }
+      );
+
+      // Replace the existing media elements in the DOM with the new sorted array
+      const mediaContainer = document.querySelector(".photographer-media");
+      mediaContainer.innerHTML = "";
+      sortedMediaElements.forEach((element) => {
+        mediaContainer.appendChild(element);
+      });
+    }
   }
 
   // Adds event listeners to media cards to open lightbox on click or pressing enter when focused
