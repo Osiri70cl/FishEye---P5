@@ -253,6 +253,9 @@ data {
   }
   & .contact-modal_message {
     height: 10em;
+    width: 100%;
+    border-radius: 12px;
+    resize: none;
   }
 }
 

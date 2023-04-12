@@ -45,12 +45,7 @@ export class Modal {
         document.querySelector("#contact_modal-photographer-header").focus();
       }
     });
-    // document
-    //   .querySelector(".contact-modal_submit-button")
-    //   .addEventListener("focus", () => {
-    //     console.log("Contact");
-    //     modalContainer.querySelector(".contact-modal_header").focus();
-    //   });
+
     return modalContainer;
   }
 

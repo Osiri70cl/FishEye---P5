@@ -1,6 +1,6 @@
 import { MediaFactory } from "../factories/mediaFactory.js";
 import { displayedPhotographerData } from "../store/store.js";
-import { Modal } from "./Modal.js";
+import { Modal } from "./modal.js";
 
 export class ModalLightbox extends Modal {
   constructor(media) {

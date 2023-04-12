@@ -1,9 +1,9 @@
-import { Media } from "./Media.js"
+import { Media } from "./media.js";
 
 export class VideoMedia extends Media {
   constructor(media) {
-    super(media)
-    this.video = media.video
+    super(media);
+    this.video = media.video;
   }
 
   createMedia(context) {
@@ -13,6 +13,6 @@ export class VideoMedia extends Media {
     <source src="assets/${this.photographerId}/${this.video}" type="video/mp4">
     </video><div ${Media.addMediaLegendClass(context)}><figcaption id="media-${
       this.id
-    }">${this.title}</figcaption></div>`
+    }">${this.title}</figcaption></div>`;
   }
 }

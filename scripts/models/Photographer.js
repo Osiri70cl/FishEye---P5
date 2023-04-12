@@ -1,5 +1,5 @@
-import { PhotographerMedia } from "../components/PhotographerMedia.js";
-import { PhotographerProfile } from "../components/PhotographerProfile.js";
+import { PhotographerMedia } from "../components/photographermedia.js";
+import { PhotographerProfile } from "../components/photographerprofile.js";
 import { displayedPhotographerData } from "../store/store.js";
 
 /* The Photographer class is a class that creates a photographer object and has a method that displays

@@ -1,4 +1,4 @@
-import { faHeartIcon } from "./faHeartIcon.js";
+import { faHeartIcon } from "./fahearticon.js";
 import { ModalFactory } from "../factories/modalFactory.js";
 
 export class PhotographerProfile {
