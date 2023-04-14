@@ -1,5 +1,5 @@
-import { API } from "../api/Api.js";
-import { Photographer } from "../models/Photographer.js";
+import { API } from "../api/api.js";
+import { Photographer } from "../models/photographer.js";
 
 /**
  * The function `init()` is an asynchronous function that calls the function `displayData()` with the

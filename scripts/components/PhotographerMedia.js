@@ -1,5 +1,5 @@
-import { MediaFactory } from "../factories/mediaFactory.js";
-import { ModalFactory } from "../factories/modalFactory.js";
+import { MediaFactory } from "../factories/mediafactory.js";
+import { ModalFactory } from "../factories/modalfactory.js";
 import { likedMediaList, displayedPhotographerData } from "../store/store.js";
 import { faHeartIcon, faHeartIconEmpty } from "./fahearticon.js";
 

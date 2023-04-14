@@ -1,4 +1,4 @@
-import { MediaFactory } from "../factories/mediaFactory.js";
+import { MediaFactory } from "../factories/mediafactory.js";
 import { displayedPhotographerData } from "../store/store.js";
 import { Modal } from "./modal.js";
 
