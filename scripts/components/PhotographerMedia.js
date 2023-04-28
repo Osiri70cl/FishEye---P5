@@ -80,7 +80,7 @@ export class PhotographerMedia {
 
     // Check if the media property is not null before sorting and reordering elements
     if (displayedPhotographerData.media !== null) {
-      displayedPhotographerData.media.sort((a, b) => {
+      -+displayedPhotographerData.media.sort((a, b) => {
         if (
           sortingParameter === "popularite" ||
           sortingParameter === undefined

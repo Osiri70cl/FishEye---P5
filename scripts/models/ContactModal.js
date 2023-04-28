@@ -40,7 +40,7 @@ export class ContactModal extends Modal {
   // Displays the content of the form inputs in the console log on submit.
   getFormContent(event) {
     event.preventDefault();
-    const formInputs = document.querySelectorAll("input");
+    const formInputs = document.querySelectorAll("input, textarea");
     for (let field of formInputs) {
       console.log(field.value);
     }
